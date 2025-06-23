@@ -1,0 +1,1 @@
+Invoke-RestMethod -Uri http://localhost:3001/api/products -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"name":"Dark Brown barcoo bridle","description":"3/4\" Barcoo Bridle Made from high quality dark brown leather with Solid brass fittings","price":100,"imageUrl":"P1.JPG"}'

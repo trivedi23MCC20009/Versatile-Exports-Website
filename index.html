@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Versatile Exports</title>
+  <link rel="stylesheet" href="global-theme.css" />
+  <style>
+    /* Dropdown menu styles from contact.html */
+    .dropdown-menu {
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+      background: #fefcf7;
+      border: 1px solid #bfae6a;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(166, 124, 0, 0.25);
+      padding: 10px 0;
+      color: #4a3a00;
+      min-width: 180px;
+      max-width: 220px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 8px 15px;
+      color: #4a3a00;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 4px;
+      border-bottom: 1px solid #d6cfa3;
+    }
+    .dropdown-menu a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-menu a:hover,
+    .dropdown-menu a:focus {
+      background-color: #bfae6a;
+      color: #3a2a00;
+      outline: none;
+      box-shadow: 0 0 10px rgba(191, 174, 106, 0.8);
+    }
+    /* Nested dropdown styles */
+    .nested-dropdown {
+      display: none;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      background: #fefcf7;
+      border: 1px solid #bfae6a;
+      border-radius: 6px;
+      min-width: 180px;
+      max-width: 220px;
+      box-shadow: 0 4px 10px rgba(166, 124, 0, 0.25);
+      z-index: 1100;
+      padding: 10px 0;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #4a3a00;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .nested-dropdown a {
+      display: block;
+      padding: 8px 15px;
+      color: #4a3a00;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 4px;
+    }
+    .nested-dropdown a:hover,
+    .nested-dropdown a:focus {
+      background-color: #bfae6a;
+      color: #3a2a00;
+      padding-left: 30px;
+      outline: none;
+      box-shadow: 0 0 10px rgba(191, 174, 106, 0.8);
+    }
+    .has-nested:hover > .nested-dropdown {
+      display: block;
+    }
+    .nested-toggle {
+      cursor: pointer;
+      position: relative;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #5a3a00;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+    .nested-toggle::after {
+      content: "▶";
+      position: absolute;
+      right: 20px;
+      font-size: 0.9em;
+      color: #4a3a00;
+      transition: transform 0.3s ease;
+    }
+    .nested-toggle.active::after {
+      transform: rotate(180deg);
+    }
+    .nested-toggle:hover,
+    .nested-toggle:focus {
+      background-color: #bfae6a;
+      color: #3a2a00;
+      outline: none;
+      box-shadow: 0 0 10px rgba(191, 174, 106, 0.8);
+    }
+    /* Header styles from contact.html */
+    header {
+      background-color: #d9cba7;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo {
+      color: #6b4e00;
+      font-weight: 700;
+      font-size: 1.5rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-right: 40px;
+    }
+    nav {
+      margin-left: 0;
+    }
+    nav ul {
+      display: flex;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      height: 70px;
+      align-items: center;
+    }
+    nav ul li a {
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 700 !important;
+      font-size: 1.1rem;
+      padding: 12px 25px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #000000 !important;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 6px;
+    }
+    nav ul li a:hover {
+      background-color: #f5f1e9;
+      color: #6b4e00;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      outline: none;
+    }
+    nav ul li a.active {
+      border-bottom: 3px solid #6b4e00;
+      padding-bottom: 5px;
+      color: #6b4e00;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 10px rgba(166, 124, 0, 0.25);
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const productsButton = document.querySelector('nav ul li a[href="product-details-bridle.html"]');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+
+      productsButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (dropdownMenu.classList.contains('show')) {
+          dropdownMenu.classList.remove('show');
+        } else {
+          dropdownMenu.classList.add('show');
+        }
+      });
+
+      // Close dropdown if clicked outside
+      document.addEventListener('click', function (e) {
+        if (!productsButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.classList.remove('show');
+        }
+      });
+
+      // Nested dropdown toggle for Horse Products
+      const nestedToggles = document.querySelectorAll('.nested-toggle');
+      const nestedDropdowns = document.querySelectorAll('.nested-dropdown');
+
+      nestedToggles.forEach((link, index) => {
+        const nestedDropdown = nestedDropdowns[index];
+        if (nestedDropdown) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (nestedDropdown.classList.contains('show')) {
+              nestedDropdown.classList.remove('show');
+            } else {
+              nestedDropdown.classList.add('show');
+            }
+            link.classList.toggle('active');
+          });
+
+          // Close nested dropdown if clicked outside
+          document.addEventListener('click', function(e) {
+            if (!link.contains(e.target) && !nestedDropdown.contains(e.target)) {
+              nestedDropdown.classList.remove('show');
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <header style="background-color: #d9cba7; height: 70px; display: flex; align-items: center; padding: 0 40px; position: sticky; top: 0; z-index: 1000;">
+    <div style="color: #6b4e00; font-weight: 700; font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-right: 40px;">
+      Versatile Exports
+    </div>
+    <nav style="margin-left: 0;">
+      <ul style="display: flex; gap: 40px; margin: 0; padding: 0; list-style: none; height: 70px; align-items: center;">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li class="has-nested" style="position: relative;">
+          <a href="product-details-bridle.html">Our Products</a>
+          <div class="dropdown-menu">
+            <a href="#" class="nested-toggle">Horse Products</a>
+            <div class="nested-dropdown">
+              <a href="halter.html">Halters</a>
+              <a href="product-details/bridles-and-reins.html">Bridles and Reins</a>
+              <a href="product-details/carriage-driving-harness.html">Carriage Driving Harness</a>
+              <a href="product-details/training-and-lunging.html">Training and Lunging</a>
+              <a href="product-details/pony-pad.html">Pony Pad</a>
+              <a href="product-details/bell-boots.html">Bell Boots</a>
+              <a href="product-details/neck-bells.html">Neck Bells</a>
+            </div>
+            <a href="#" class="nested-toggle">Dog Products</a>
+            <div class="nested-dropdown">
+              <a href="product-details/dog-collars-list.html">Dog Collars</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="inquiry.html">Inquiry</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div style="width: 100%; max-width: 1200px; margin: 0 auto 0 auto; padding: 0; text-align: center;">
+  <img src="pics/Chrome Four In Hand.JPG" alt="Chrome Four In Hand" style="max-width: 100%; height: auto; margin: 0 auto; border-radius: 0; object-fit: contain; display: inline-block; transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;" />
+</div>
+
+  <main class="content-transition" style="max-width: 900px; margin: 40px auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; text-align: center;">
+    <h2 style="font-weight: 700; font-size: 2.5rem; letter-spacing: 0.1em; margin-bottom: 10px;">
+      ABOUT US
+    </h2>
+    <hr style="width: 60px; border: 2px solid #b30000; margin: 0 auto 20px auto;" />
+    <p style="margin-bottom: 20px;">
+      With a legacy spanning more than two decades, Versatile Exports has established itself as a trusted name in the saddlery manufacturing industry. Specializing in high-quality equestrian products, we combine traditional craftsmanship with modern techniques to produce saddles, bridles, harnesses, and a wide range of leather accessories that meet the highest standards of performance and durability.
+    </p>
+    <p style="margin-bottom: 20px;">
+      Our company has grown into a respected manufacturer supplying clients worldwide, including leading equestrian brands, retailers, and professional riders. Our skilled artisans bring years of experience and attention to detail to every product, ensuring excellence in both function and form.
+    </p>
+    <p>
+      At Versatile Exports, our mission is to uphold the heritage of fine saddlery while continuously innovating to meet the evolving needs of the equestrian community. Whether for competition, leisure riding, or custom orders, we are committed to delivering products that reflect our passion, precision, and pride in craftsmanship.
+    </p>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('DOM fully loaded and parsed');
+      const mainContent = document.querySelector('main.content-transition');
+      if (mainContent) {
+        console.log('Main content found:', mainContent);
+        setTimeout(() => {
+          mainContent.classList.add('visible');
+          console.log('Visible class added');
+        }, 100);
+      } else {
+        console.log('Main content not found');
+      }
+    });
+  </script>
+
+  <footer style="background-color: #f5f1e9; color: #5d3a00; padding: 15px 0; text-align: center; font-weight: 600;">
+    © 2024 Versatile Export. All rights reserved | Designed by Keshav Trivedi, +91-9044194542.
+  </footer>
+</body>
+</html>
