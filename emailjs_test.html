@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EmailJS Test</title>
+  <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init('SL4ehOoE1NPptsHtd');
+      function sendTestEmail() {
+        var templateParams = {
+          subject: "Test Email",
+          name: "Test User",
+          contact: "1234567890",
+          email: "test@example.com",
+          productName: "Test Product"
+        };
+        emailjs.send('service_wju6uha', 'template_xbpjnmx', templateParams)
+          .then(function(response) {
+            alert('Test email sent successfully!');
+            console.log('SUCCESS!', response.status, response.text);
+          }, function(error) {
+            alert('Failed to send test email.');
+            console.log('FAILED...', error);
+          });
+      }
+      window.onload = function() {
+        document.getElementById('sendBtn').addEventListener('click', sendTestEmail);
+      };
+    })();
+  </script>
+</head>
+<body>
+  <h1>EmailJS Test Page</h1>
+  <button id="sendBtn">Send Test Email</button>
+</body>
+</html>
