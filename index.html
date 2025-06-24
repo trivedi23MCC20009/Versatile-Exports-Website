@@ -170,7 +170,7 @@
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const productsButton = document.querySelector('nav ul li a[href="product-details-bridle.html"]');
+      const productsButton = document.querySelector('nav ul li.has-nested > a');
       const dropdownMenu = document.querySelector('.dropdown-menu');
 
       productsButton.addEventListener('click', function (e) {
@@ -227,7 +227,7 @@
       <ul style="display: flex; gap: 40px; margin: 0; padding: 0; list-style: none; height: 70px; align-items: center;">
         <li><a href="index.html" class="active">Home</a></li>
         <li class="has-nested" style="position: relative;">
-          <a href="product-details-bridle.html">Our Products</a>
+          <a href="#" onclick="return false;" style="cursor: default;">Our Products</a>
           <div class="dropdown-menu">
             <a href="#" class="nested-toggle">Horse Products</a>
             <div class="nested-dropdown">
@@ -246,14 +246,33 @@
           </div>
         </li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="inquiry.html">Inquiry</a></li>
       </ul>
     </nav>
   </header>
 
-  <div style="width: 100%; max-width: 1200px; margin: 0 auto 0 auto; padding: 0; text-align: center;">
-  <img src="pics/Chrome Four In Hand.JPG" alt="Chrome Four In Hand" style="max-width: 100%; height: auto; margin: 0 auto; border-radius: 0; object-fit: contain; display: inline-block; transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;" />
-</div>
+  <div style="width: 100%; max-width: 1200px; margin: 1cm auto 0 auto; padding: 0; text-align: center; position: relative; height: auto;">
+    <img id="bannerImage" src="pics/Chrome Four In Hand.JPG" alt="Banner Image" style="max-width: 100%; height: auto; margin: 0 auto; border-radius: 0; object-fit: contain; display: inline-block; transition: opacity 0.5s ease-in-out;" />
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const images = [
+        "pics/Chrome Four In Hand.JPG",
+        "pics/Marathon Harness 2.jpg"
+      ];
+      let currentIndex = 0;
+      const bannerImage = document.getElementById('bannerImage');
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        bannerImage.style.opacity = 0;
+        setTimeout(() => {
+          bannerImage.src = images[currentIndex];
+          bannerImage.style.opacity = 1;
+        }, 500);
+      }, 3000);
+    });
+  </script>
 
   <main class="content-transition" style="max-width: 900px; margin: 40px auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; text-align: center;">
     <h2 style="font-weight: 700; font-size: 2.5rem; letter-spacing: 0.1em; margin-bottom: 10px;">
