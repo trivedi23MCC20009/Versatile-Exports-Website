@@ -213,22 +213,13 @@
       <div class="product-description">
         This halter draft is designed for strength and durability, perfect for heavy-duty use.
       </div>
-      <div class="tabs">
-        <div class="tab active" data-tab="description">Description</div>
-        <div class="tab" data-tab="specifications">Specifications</div>
-        <div class="tab" data-tab="reviews">Reviews</div>
-      </div>
-      <div class="tab-content" id="tabContent">
-        <p>This halter draft is made from strong leather with reinforced stitching and brass fittings.</p>
-      </div>
       <a href="../halter.html" class="back-link">&#8592; Back to Halters</a>
     </div>
   </main>
+  <script src="../navigation.js"></script>
   <script>
     const mainImage = document.getElementById('mainImage');
     const thumbnails = document.querySelectorAll('.thumbnail');
-    const tabs = document.querySelectorAll('.tab');
-    const tabContent = document.getElementById('tabContent');
 
     // Modal elements
     const modal = document.createElement('div');
@@ -311,21 +302,6 @@
     }
 
     setInterval(cycleImages, 3000);
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const tabName = tab.getAttribute('data-tab');
-        if (tabName === 'description') {
-          tabContent.innerHTML = '<p>This halter draft is made from strong leather with reinforced stitching and brass fittings.</p>';
-        } else if (tabName === 'specifications') {
-          tabContent.innerHTML = '<ul><li>Material: Strong leather</li><li>Reinforced stitching</li><li>Fittings: Brass</li><li>Color: Brown</li></ul>';
-        } else if (tabName === 'reviews') {
-          tabContent.innerHTML = '<p>No reviews yet.</p>';
-        }
-      });
-    });
   </script>
 </body>
 </html>

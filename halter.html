@@ -264,6 +264,12 @@
     outline: none;
     box-shadow: 0 0 10px rgba(191, 174, 106, 0.8);
   }
+  .dropdown-menu.show {
+    display: block !important;
+  }
+  .nested-dropdown.show {
+    display: block !important;
+  }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -324,27 +330,32 @@
   </script>
 </head>
 <body>
-  <header>
-    <div class="logo">Versatile Exports</div>
+  <header style="background-color: #d9cba7; height: 70px; display: flex; align-items: center; padding: 0 40px; position: sticky; top: 0; z-index: 1000;">
+    <div style="color: #6b4e00; font-weight: 700; font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-right: 40px;">
+      Versatile Exports
+    </div>
     <nav style="margin-left: 0;">
       <ul style="display: flex; gap: 40px; margin: 0; padding: 0; list-style: none; height: 70px; align-items: center;">
         <li><a href="index.html" class="active">Home</a></li>
         <li class="has-nested" style="position: relative;">
-          <a href="product-details-bridle.html">Our Products</a>
-  <div class="dropdown-menu">
-<a href="#" class="nested-toggle">Horse Products</a>
-<div class="nested-dropdown">
-  <a href="halter.html">Halters</a>
-  <a href="product-details/bridles-and-reins.html">Bridles and Reins</a>
-  <a href="product-details/carriage-driving-harness.html">Carriage Driving Harness</a>
-  <a href="product-details/training-and-lunging.html">Training and Lunging</a>
-  <a href="product-details/pony-pad.html">Pony Pad</a>
-  <a href="#">Bell Boots</a>
-  <a href="#">Neck Bells</a>
-</div>
+          <a href="#" onclick="return false;" style="cursor: default;">Our Products</a>
+          <div class="dropdown-menu">
+            <a href="#" class="nested-toggle">Horse Products</a>
+            <div class="nested-dropdown">
+              <a href="halter.html">Halters</a>
+              <a href="product-details/bridles-and-reins.html">Bridles and Reins</a>
+              <a href="product-details/carriage-driving-harness.html">Carriage Driving Harness</a>
+              <a href="product-details/training-and-lunging.html">Training and Lunging</a>
+              <a href="product-details/pony-pad.html">Pony Pad</a>
+              <a href="product-details/bell-boots.html">Bell Boots</a>
+              <a href="product-details/neck-bells.html">Neck Bells</a>
+            </div>
             <a href="#" class="nested-toggle">Dog Products</a>
             <div class="nested-dropdown">
-              <a href="#">Dog Collars</a>
+              <a href="product-details/dog-collars-list.html">Dog Collars</a>
+              <a href="product-details/dog-collars.html">Dog Collars Plain</a>
+              <a href="product-details/dog-collars-shiny.html">Dog Collars Shiny</a>
+              <a href="product-details/dog-collars-with-shiny-crystals.html">Dog Collars with Shiny Crystals</a>
             </div>
           </div>
         </li>

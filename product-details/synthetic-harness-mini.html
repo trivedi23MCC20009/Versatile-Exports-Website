@@ -125,35 +125,6 @@
       margin-bottom: 30px;
       color: #333;
     }
-    .tabs {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-    .tab {
-      padding: 10px 20px;
-      background-color: #f5f1e9;
-      border-radius: 6px;
-      font-weight: 700;
-      color: #6b4e00;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s ease;
-    }
-    .tab.active {
-      background-color: #bfae6a;
-      color: #3a2a00;
-      box-shadow: 0 0 10px rgba(191, 174, 106, 0.8);
-    }
-    .tab-content {
-      font-size: 1rem;
-      color: #333;
-      line-height: 1.5;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 20px;
-      min-height: 150px;
-    }
     a.back-link {
       margin-top: 30px;
       display: inline-block;
@@ -175,7 +146,25 @@
     <nav>
       <ul>
         <li><a href="../index.html">Home</a></li>
-        <li><a href="../halter.html">Our Products</a></li>
+        <li class="has-nested" style="position: relative;">
+          <a href="#" onclick="return false;" style="cursor: default;">Our Products</a>
+          <div class="dropdown-menu">
+            <a href="#" class="nested-toggle">Horse Products</a>
+            <div class="nested-dropdown">
+              <a href="../halter.html">Halters</a>
+              <a href="../product-details/bridles-and-reins.html">Bridles and Reins</a>
+              <a href="../product-details/carriage-driving-harness.html">Carriage Driving Harness</a>
+              <a href="../product-details/training-and-lunging.html">Training and Lunging</a>
+              <a href="../product-details/pony-pad.html">Pony Pad</a>
+              <a href="../product-details/bell-boots.html">Bell Boots</a>
+              <a href="../product-details/neck-bells.html">Neck Bells</a>
+            </div>
+            <a href="#" class="nested-toggle">Dog Products</a>
+            <div class="nested-dropdown">
+              <a href="../product-details/dog-collars-list.html">Dog Collars</a>
+            </div>
+          </div>
+        </li>
         <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -193,22 +182,12 @@
       <div class="product-description">
         This synthetic harness mini is crafted with durable synthetic materials and designed for lightweight performance. Suitable for small carriage driving.
       </div>
-      <div class="tabs">
-        <div class="tab active" data-tab="description">Description</div>
-        <div class="tab" data-tab="specifications">Specifications</div>
-        <div class="tab" data-tab="reviews">Reviews</div>
-      </div>
-      <div class="tab-content" id="tabContent">
-        <p>This synthetic harness mini features lightweight synthetic materials, adjustable fittings, and a compact design.</p>
-      </div>
       <a href="carriage-driving-harness.html" class="back-link">&#8592; Back to Carriage Driving Harness</a>
     </div>
   </main>
   <script>
     const mainImage = document.getElementById('mainImage');
     const thumbnails = document.querySelectorAll('.thumbnail');
-    const tabs = document.querySelectorAll('.tab');
-    const tabContent = document.getElementById('tabContent');
 
     // Modal elements
     const modal = document.createElement('div');
@@ -291,21 +270,6 @@
     }
 
     setInterval(cycleImages, 3000);
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const tabName = tab.getAttribute('data-tab');
-        if (tabName === 'description') {
-          tabContent.innerHTML = '<p>This synthetic harness mini features lightweight synthetic materials, adjustable fittings, and a compact design.</p>';
-        } else if (tabName === 'specifications') {
-          tabContent.innerHTML = '<ul><li>Material: Durable synthetic</li><li>Design: Compact and lightweight</li><li>Adjustable fittings</li><li>Color: Black</li></ul>';
-        } else if (tabName === 'reviews') {
-          tabContent.innerHTML = '<p>No reviews yet.</p>';
-        }
-      });
-    });
   </script>
 </body>
 </html>

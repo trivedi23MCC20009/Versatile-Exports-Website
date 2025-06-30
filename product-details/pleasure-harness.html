@@ -175,7 +175,25 @@
     <nav>
       <ul>
         <li><a href="../index.html">Home</a></li>
-        <li><a href="../halter.html">Our Products</a></li>
+        <li class="has-nested" style="position: relative;">
+          <a href="#" onclick="return false;" style="cursor: default;">Our Products</a>
+          <div class="dropdown-menu">
+            <a href="#" class="nested-toggle">Horse Products</a>
+            <div class="nested-dropdown">
+              <a href="../halter.html">Halters</a>
+              <a href="../product-details/bridles-and-reins.html">Bridles and Reins</a>
+              <a href="../product-details/carriage-driving-harness.html">Carriage Driving Harness</a>
+              <a href="../product-details/training-and-lunging.html">Training and Lunging</a>
+              <a href="../product-details/pony-pad.html">Pony Pad</a>
+              <a href="../product-details/bell-boots.html">Bell Boots</a>
+              <a href="../product-details/neck-bells.html">Neck Bells</a>
+            </div>
+            <a href="#" class="nested-toggle">Dog Products</a>
+            <div class="nested-dropdown">
+              <a href="../product-details/dog-collars-list.html">Dog Collars</a>
+            </div>
+          </div>
+        </li>
         <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -195,22 +213,12 @@
       <div class="product-description">
         This pleasure harness is crafted with premium materials and designed for comfort and style. Suitable for leisure carriage driving.
       </div>
-      <div class="tabs">
-        <div class="tab active" data-tab="description">Description</div>
-        <div class="tab" data-tab="specifications">Specifications</div>
-        <div class="tab" data-tab="reviews">Reviews</div>
-      </div>
-      <div class="tab-content" id="tabContent">
-        <p>This pleasure harness features high-quality leather, stylish design, and adjustable fittings for a comfortable fit.</p>
-      </div>
       <a href="carriage-driving-harness.html" class="back-link">&#8592; Back to Carriage Driving Harness</a>
     </div>
   </main>
   <script>
     const mainImage = document.getElementById('mainImage');
     const thumbnails = document.querySelectorAll('.thumbnail');
-    const tabs = document.querySelectorAll('.tab');
-    const tabContent = document.getElementById('tabContent');
 
     // Modal elements
     const modal = document.createElement('div');
@@ -293,21 +301,6 @@
     }
 
     setInterval(cycleImages, 3000);
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const tabName = tab.getAttribute('data-tab');
-        if (tabName === 'description') {
-          tabContent.innerHTML = '<p>This pleasure harness features high-quality leather, stylish design, and adjustable fittings for a comfortable fit.</p>';
-        } else if (tabName === 'specifications') {
-          tabContent.innerHTML = '<ul><li>Material: Premium leather</li><li>Design: Stylish and comfortable</li><li>Adjustable fittings</li><li>Color: Brown</li></ul>';
-        } else if (tabName === 'reviews') {
-          tabContent.innerHTML = '<p>No reviews yet.</p>';
-        }
-      });
-    });
   </script>
 </body>
 </html>

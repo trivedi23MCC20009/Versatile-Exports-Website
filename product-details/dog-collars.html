@@ -200,22 +200,12 @@
       <div class="product-description">
         Our dog collars are crafted with care, combining style and durability to keep your pet comfortable and secure.
       </div>
-      <div class="tabs">
-        <div class="tab active" data-tab="description">Description</div>
-        <div class="tab" data-tab="specifications">Specifications</div>
-        <div class="tab" data-tab="reviews">Reviews</div>
-      </div>
-      <div class="tab-content" id="tabContent">
-        <p>Available in various sizes and designs, our dog collars feature adjustable straps and high-quality materials.</p>
-      </div>
       <a href="halter.html" class="back-link">&#8592; Back to Halters</a>
     </div>
   </main>
   <script>
     const mainImage = document.getElementById('mainImage');
     const thumbnails = document.querySelectorAll('.thumbnail');
-    const tabs = document.querySelectorAll('.tab');
-    const tabContent = document.getElementById('tabContent');
 
     // Modal elements
     const modal = document.createElement('div');
@@ -298,21 +288,6 @@
     }
 
     setInterval(cycleImages, 3000);
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const tabName = tab.getAttribute('data-tab');
-        if (tabName === 'description') {
-          tabContent.innerHTML = '<p>Available in various sizes and designs, our dog collars feature adjustable straps and high-quality materials.</p>';
-        } else if (tabName === 'specifications') {
-          tabContent.innerHTML = '<ul><li>Material: Durable nylon and leather</li><li>Adjustable straps</li><li>Various sizes and designs</li></ul>';
-        } else if (tabName === 'reviews') {
-          tabContent.innerHTML = '<p>No reviews yet.</p>';
-        }
-      });
-    });
   </script>
 </body>
 </html>

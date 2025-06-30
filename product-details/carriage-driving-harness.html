@@ -150,7 +150,25 @@
     <nav>
       <ul>
         <li><a href="../index.html">Home</a></li>
-        <li><a href="../halter.html">Our Products</a></li>
+        <li class="has-nested" style="position: relative;">
+          <a href="#" onclick="return false;" style="cursor: default;">Our Products</a>
+          <div class="dropdown-menu">
+            <a href="#" class="nested-toggle">Horse Products</a>
+            <div class="nested-dropdown">
+              <a href="../halter.html">Halters</a>
+              <a href="../product-details/bridles-and-reins.html">Bridles and Reins</a>
+              <a href="../product-details/carriage-driving-harness.html">Carriage Driving Harness</a>
+              <a href="../product-details/training-and-lunging.html">Training and Lunging</a>
+              <a href="../product-details/pony-pad.html">Pony Pad</a>
+              <a href="../product-details/bell-boots.html">Bell Boots</a>
+              <a href="../product-details/neck-bells.html">Neck Bells</a>
+            </div>
+            <a href="#" class="nested-toggle">Dog Products</a>
+            <div class="nested-dropdown">
+              <a href="../product-details/dog-collars-list.html">Dog Collars</a>
+            </div>
+          </div>
+        </li>
         <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -228,5 +246,6 @@
   <footer>
     © 2024 Versatile Export. All rights reserved | Designed by Keshav Trivedi, +91-9044194542.
   </footer>
+  <script src="../navigation.js"></script>
 </body>
 </html>

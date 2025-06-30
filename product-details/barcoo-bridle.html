@@ -168,16 +168,37 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Versatile Exports</div>
-    <nav>
-      <ul>
+  <header style="background-color: #d9cba7; height: 70px; display: flex; align-items: center; padding: 0 40px; position: sticky; top: 0; z-index: 1000;">
+    <div style="color: #6b4e00; font-weight: 700; font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-right: 40px;">
+      Versatile Exports
+    </div>
+    <nav style="margin-left: 0;">
+      <ul style="display: flex; gap: 40px; margin: 0; padding: 0; list-style: none; height: 70px; align-items: center;">
         <li><a href="../index.html">Home</a></li>
-        <li><a href="../halter.html">Our Products</a></li>
+        <li class="has-nested" style="position: relative;">
+          <a href="#" onclick="return false;" style="cursor: default;">Our Products</a>
+          <div class="dropdown-menu">
+            <a href="#" class="nested-toggle">Horse Products</a>
+            <div class="nested-dropdown">
+              <a href="../halter.html">Halters</a>
+              <a href="../product-details/bridles-and-reins.html">Bridles and Reins</a>
+              <a href="../product-details/carriage-driving-harness.html">Carriage Driving Harness</a>
+              <a href="../product-details/training-and-lunging.html">Training and Lunging</a>
+              <a href="../product-details/pony-pad.html">Pony Pad</a>
+              <a href="../product-details/bell-boots.html">Bell Boots</a>
+              <a href="../product-details/neck-bells.html">Neck Bells</a>
+            </div>
+            <a href="#" class="nested-toggle">Dog Products</a>
+            <div class="nested-dropdown">
+              <a href="../product-details/dog-collars-list.html">Dog Collars</a>
+            </div>
+          </div>
+        </li>
         <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
+  <script src="../navigation.js"></script>
   <main>
     <div class="image-gallery">
       <img id="mainImage" src="../Website Photos/2. Bridles and Reins/4.Barcoo Bridle/MFC_7894.JPG" alt="Barcoo Bridle" class="main-image" />
@@ -195,22 +216,12 @@
       <div class="product-description">
         This barcoo bridle is crafted with premium leather and designed for durability and comfort. Ideal for everyday use and training.
       </div>
-      <div class="tabs">
-        <div class="tab active" data-tab="description">Description</div>
-        <div class="tab" data-tab="specifications">Specifications</div>
-        <div class="tab" data-tab="reviews">Reviews</div>
-      </div>
-      <div class="tab-content" id="tabContent">
-        <p>This barcoo bridle is made from high-quality leather with brass fittings. It is adjustable and comfortable for the horse.</p>
-      </div>
       <a href="bridles-and-reins.html" class="back-link">&#8592; Back to Bridles and Reins</a>
     </div>
   </main>
   <script>
     const mainImage = document.getElementById('mainImage');
     const thumbnails = document.querySelectorAll('.thumbnail');
-    const tabs = document.querySelectorAll('.tab');
-    const tabContent = document.getElementById('tabContent');
 
     // Modal elements
     const modal = document.createElement('div');
@@ -293,21 +304,6 @@
     }
 
     setInterval(cycleImages, 3000);
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const tabName = tab.getAttribute('data-tab');
-        if (tabName === 'description') {
-          tabContent.innerHTML = '<p>This barcoo bridle is made from high-quality leather with brass fittings. It is adjustable and comfortable for the horse.</p>';
-        } else if (tabName === 'specifications') {
-          tabContent.innerHTML = '<ul><li>Material: Premium leather</li><li>Fittings: Brass</li><li>Adjustable size</li><li>Color: Brown</li></ul>';
-        } else if (tabName === 'reviews') {
-          tabContent.innerHTML = '<p>No reviews yet.</p>';
-        }
-      });
-    });
   </script>
 </body>
 </html>

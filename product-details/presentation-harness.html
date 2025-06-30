@@ -168,12 +168,48 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Versatile Exports</div>
-    <nav>
-      <ul>
+  <header style="background-color: #d9cba7; height: 70px; display: flex; align-items: center; padding: 0 40px; position: sticky; top: 0; z-index: 1000;">
+    <div style="color: #6b4e00; font-weight: 700; font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-right: 40px;">
+      Versatile Exports
+    </div>
+    <nav style="margin-left: 0;">
+      <ul style="display: flex; gap: 40px; margin: 0; padding: 0; list-style: none; height: 70px; align-items: center;">
         <li><a href="../index.html">Home</a></li>
-        <li><a href="../halter.html">Our Products</a></li>
+        <li class="has-nested" style="position: relative;">
+          <a href="#" onclick="return false;" style="cursor: default;">Our Products</a>
+          <div class="dropdown-menu">
+            <a href="#" class="nested-toggle">Horse Products</a>
+            <div class="nested-dropdown">
+              <a href="../halter.html">Halters</a>
+              <a href="../product-details/bridles-and-reins.html">Bridles and Reins</a>
+              <a href="../product-details/carriage-driving-harness.html">Carriage Driving Harness</a>
+              <a href="../product-details/training-and-lunging.html">Training and Lunging</a>
+              <a href="../product-details/pony-pad.html">Pony Pad</a>
+              <a href="../product-details/bell-boots.html">Bell Boots</a>
+              <a href="../product-details/neck-bells.html">Neck Bells</a>
+              <a href="../product-details/padded-halter.html">Padded Halter</a>
+              <a href="../product-details/halter-draft.html">Halter Draft</a>
+              <a href="../product-details/halter-shiny.html">Halter Shiny</a>
+              <a href="../product-details/bridle-shiny.html">Bridle Shiny</a>
+              <a href="../product-details/barcoo-bridle.html">Barcoo Bridle</a>
+              <a href="../product-details/browbands.html">Browbands</a>
+              <a href="../product-details/presentation-harness.html">Presentation Harness</a>
+              <a href="../product-details/carriage-driving-harness-euro-collar.html">Carriage Driving Harness Euro Collar</a>
+              <a href="../product-details/driving-harness-curved-breastplate.html">Driving Harness Curved Breastplate</a>
+              <a href="../product-details/driving-harness-straight-breastplate.html">Driving Harness Straight Breastplate</a>
+              <a href="../product-details/economic-harness.html">Economic Harness</a>
+              <a href="../product-details/economic-harness-colour-padding.html">Economic Harness Colour Padding</a>
+              <a href="../product-details/pleasure-harness.html">Pleasure Harness</a>
+              <a href="../product-details/synthetic-harness-mini.html">Synthetic Harness Mini</a>
+              <a href="../product-details/training-surcingle.html">Training Surcingle</a>
+            </div>
+            <a href="#" class="nested-toggle">Dog Products</a>
+            <div class="nested-dropdown">
+              <a href="../product-details/dog-collars-list.html">Dog Collars</a>
+              <a href="../product-details/dog-collars.html">Dog Collars Plain</a>
+           </div>
+          </div>
+        </li>
         <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -193,119 +229,94 @@
       <div class="product-description">
         This presentation harness is crafted with premium materials and designed for elegance and durability. Ideal for formal carriage driving.
       </div>
-      <div class="tabs">
-        <div class="tab active" data-tab="description">Description</div>
-        <div class="tab" data-tab="specifications">Specifications</div>
-        <div class="tab" data-tab="reviews">Reviews</div>
-      </div>
-      <div class="tab-content" id="tabContent">
-        <p>This presentation harness features high-quality leather, polished fittings, and a comfortable fit for the horse.</p>
-      </div>
-      <a href="carriage-driving-harness.html" class="back-link">&#8592; Back to Carriage Driving Harness</a>
-    </div>
-  </main>
-  <script>
-    const mainImage = document.getElementById('mainImage');
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    const tabs = document.querySelectorAll('.tab');
-    const tabContent = document.getElementById('tabContent');
+    <a href="carriage-driving-harness.html" class="back-link">&#8592; Back to Carriage Driving Harness</a>
+  </div>
+</main>
+<script>
+  const mainImage = document.getElementById('mainImage');
+  const thumbnails = document.querySelectorAll('.thumbnail');
 
-    // Modal elements
-    const modal = document.createElement('div');
-    modal.id = 'imageModal';
+  // Modal elements
+  const modal = document.createElement('div');
+  modal.id = 'imageModal';
+  modal.style.display = 'none';
+  modal.style.position = 'fixed';
+  modal.style.zIndex = '10000';
+  modal.style.left = '0';
+  modal.style.top = '0';
+  modal.style.width = '100%';
+  modal.style.height = '100%';
+  modal.style.overflow = 'auto';
+  modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
+  modal.style.justifyContent = 'center';
+  modal.style.alignItems = 'center';
+
+  const modalImg = document.createElement('img');
+  modalImg.style.maxWidth = '90%';
+  modalImg.style.maxHeight = '90%';
+  modalImg.style.margin = 'auto';
+  modalImg.style.display = 'block';
+  modalImg.style.borderRadius = '8px';
+  modal.appendChild(modalImg);
+
+  const closeBtn = document.createElement('span');
+  closeBtn.innerHTML = '&times;';
+  closeBtn.style.position = 'absolute';
+  closeBtn.style.top = '20px';
+  closeBtn.style.right = '35px';
+  closeBtn.style.color = '#fff';
+  closeBtn.style.fontSize = '40px';
+  closeBtn.style.fontWeight = 'bold';
+  closeBtn.style.cursor = 'pointer';
+  modal.appendChild(closeBtn);
+
+  document.body.appendChild(modal);
+
+  // Open modal function
+  function openModal(src) {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+  }
+
+  // Close modal on click
+  closeBtn.onclick = function() {
     modal.style.display = 'none';
-    modal.style.position = 'fixed';
-    modal.style.zIndex = '10000';
-    modal.style.left = '0';
-    modal.style.top = '0';
-    modal.style.width = '100%';
-    modal.style.height = '100%';
-    modal.style.overflow = 'auto';
-    modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
-    modal.style.justifyContent = 'center';
-    modal.style.alignItems = 'center';
+  };
 
-    const modalImg = document.createElement('img');
-    modalImg.style.maxWidth = '90%';
-    modalImg.style.maxHeight = '90%';
-    modalImg.style.margin = 'auto';
-    modalImg.style.display = 'block';
-    modalImg.style.borderRadius = '8px';
-    modal.appendChild(modalImg);
-
-    const closeBtn = document.createElement('span');
-    closeBtn.innerHTML = '&times;';
-    closeBtn.style.position = 'absolute';
-    closeBtn.style.top = '20px';
-    closeBtn.style.right = '35px';
-    closeBtn.style.color = '#fff';
-    closeBtn.style.fontSize = '40px';
-    closeBtn.style.fontWeight = 'bold';
-    closeBtn.style.cursor = 'pointer';
-    modal.appendChild(closeBtn);
-
-    document.body.appendChild(modal);
-
-    // Open modal function
-    function openModal(src) {
-      modal.style.display = 'flex';
-      modalImg.src = src;
-    }
-
-    // Close modal on click
-    closeBtn.onclick = function() {
+  // Close modal on outside click
+  modal.onclick = function(event) {
+    if (event.target === modal) {
       modal.style.display = 'none';
-    };
-
-    // Close modal on outside click
-    modal.onclick = function(event) {
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
-    };
-
-    // Click on main image to open modal
-    mainImage.addEventListener('click', () => {
-      openModal(mainImage.src);
-    });
-
-    // Click on thumbnails to change main image and open modal
-    thumbnails.forEach((thumbnail) => {
-      thumbnail.addEventListener('click', () => {
-        mainImage.src = thumbnail.src;
-        thumbnails.forEach(t => t.classList.remove('active'));
-        thumbnail.classList.add('active');
-        openModal(thumbnail.src);
-      });
-    });
-
-    // Automatic slider for main image cycling every 3 seconds
-    let currentIndex = 0;
-    const images = Array.from(thumbnails).map(t => t.src);
-
-    function cycleImages() {
-      currentIndex = (currentIndex + 1) % images.length;
-      mainImage.src = images[currentIndex];
-      thumbnails.forEach(t => t.classList.remove('active'));
-      thumbnails[currentIndex].classList.add('active');
     }
+  };
 
-    setInterval(cycleImages, 3000);
+  // Click on main image to open modal
+  mainImage.addEventListener('click', () => {
+    openModal(mainImage.src);
+  });
 
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const tabName = tab.getAttribute('data-tab');
-        if (tabName === 'description') {
-          tabContent.innerHTML = '<p>This presentation harness features high-quality leather, polished fittings, and a comfortable fit for the horse.</p>';
-        } else if (tabName === 'specifications') {
-          tabContent.innerHTML = '<ul><li>Material: Premium leather</li><li>Fittings: Polished metal</li><li>Comfortable fit</li><li>Color: Black</li></ul>';
-        } else if (tabName === 'reviews') {
-          tabContent.innerHTML = '<p>No reviews yet.</p>';
-        }
-      });
+  // Click on thumbnails to change main image and open modal
+  thumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener('click', () => {
+      mainImage.src = thumbnail.src;
+      thumbnails.forEach(t => t.classList.remove('active'));
+      thumbnail.classList.add('active');
+      openModal(thumbnail.src);
     });
-  </script>
+  });
+
+  // Automatic slider for main image cycling every 3 seconds
+  let currentIndex = 0;
+  const images = Array.from(thumbnails).map(t => t.src);
+
+  function cycleImages() {
+    currentIndex = (currentIndex + 1) % images.length;
+    mainImage.src = images[currentIndex];
+    thumbnails.forEach(t => t.classList.remove('active'));
+    thumbnails[currentIndex].classList.add('active');
+  }
+
+  setInterval(cycleImages, 3000);
+</script>
 </body>
 </html>
