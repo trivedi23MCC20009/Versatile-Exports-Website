@@ -145,16 +145,37 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Versatile Exports</div>
+  <header style="background-color: #d9cba7; height: 70px; display: flex; align-items: center; padding: 0 40px; position: sticky; top: 0; z-index: 1000;">
+    <div style="color: #6b4e00; font-weight: 700; font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-right: 40px;">
+      Versatile Exports
+    </div>
     <nav style="margin-left: 0;">
       <ul style="display: flex; gap: 40px; margin: 0; padding: 0; list-style: none; height: 70px; align-items: center;">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../halter.html">Our Products</a></li>
+        <li><a href="../index.html" class="active">Home</a></li>
+        <li class="has-nested" style="position: relative;">
+          <a href="#" onclick="return false;" style="cursor: default;">Our Products</a>
+          <div class="dropdown-menu">
+            <a href="#" class="nested-toggle">Horse Products</a>
+            <div class="nested-dropdown">
+              <a href="../halter.html">Halters</a>
+              <a href="bridles-and-reins.html">Bridles and Reins</a>
+              <a href="carriage-driving-harness.html">Carriage Driving Harness</a>
+              <a href="training-and-lunging.html">Training and Lunging</a>
+              <a href="pony-pad.html">Pony Pad</a>
+              <a href="bell-boots.html">Bell Boots</a>
+              <a href="neck-bells.html">Neck Bells</a>
+            </div>
+            <a href="#" class="nested-toggle">Dog Products</a>
+            <div class="nested-dropdown">
+              <a href="dog-collars-list.html">Dog Collars</a>
+            </div>
+          </div>
+        </li>
         <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
+  <script src="../navigation.js"></script>
     <main>
     <h1>Dog Collars</h1>
     <div class="product-grid" style="justify-content: flex-start; text-align: left;">
@@ -180,7 +201,7 @@
     </div>
     <a href="../halter.html" class="back-link">&#8592; Back to Halters</a>
   </main>
-  <footer style="background-color: #d9cba7; color: #6b4e00; padding: 15px 0; text-align: center; font-weight: 600;">
+  <footer style="background-color: #d9cba7; color: #6b4e00; padding: 15px 0; text-align: center; font-weight: 600; position: fixed; bottom: 0; width: 100%;">
     © 2024 Versatile Exports. All rights reserved | Designed by Keshav Trivedi, +91-9044194542.
   </footer>
 </body>

@@ -175,7 +175,25 @@
     <nav>
       <ul>
         <li><a href="../index.html">Home</a></li>
-        <li><a href="../halter.html">Our Products</a></li>
+        <li class="has-nested" style="position: relative;">
+          <a href="#" onclick="return false;" style="cursor: default;">Our Products</a>
+          <div class="dropdown-menu">
+            <a href="#" class="nested-toggle">Horse Products</a>
+            <div class="nested-dropdown">
+              <a href="../halter.html">Halters</a>
+              <a href="bridles-and-reins.html">Bridles and Reins</a>
+              <a href="carriage-driving-harness.html">Carriage Driving Harness</a>
+              <a href="training-and-lunging.html">Training and Lunging</a>
+              <a href="pony-pad.html">Pony Pad</a>
+              <a href="bell-boots.html">Bell Boots</a>
+              <a href="neck-bells.html">Neck Bells</a>
+            </div>
+            <a href="#" class="nested-toggle">Dog Products</a>
+            <div class="nested-dropdown">
+              <a href="dog-collars-list.html">Dog Collars</a>
+            </div>
+          </div>
+        </li>
         <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -192,7 +210,6 @@
         <img src="../Website Photos/P.    Dog Collars/Dog Collars Shiny/IMG_2414.JPG" alt="Dog Collars Shiny" class="thumbnail" />
         <img src="../Website Photos/P.    Dog Collars/Dog Collars Shiny/IMG_2417.JPG" alt="Dog Collars Shiny" class="thumbnail" />
         <img src="../Website Photos/P.    Dog Collars/Dog Collars Shiny/IMG_2421.JPG" alt="Dog Collars Shiny" class="thumbnail" />
-        <img src="../Website Photos/P.    Dog Collars/Dog Collars Shiny/IMG_2434.JPG" alt="Dog Collars Shiny" class="thumbnail" />
       </div>
     </div>
     <div class="product-details">
@@ -200,7 +217,7 @@
       <div class="product-description">
         Our shiny dog collars are designed to add sparkle and style while ensuring comfort and durability.
       </div>
-      <a href="dog-collars.html" class="back-link">&#8592; Back to Dog Collars</a>
+       <a href="dog-collars-list.html" class="back-link">&#8592; Back to Dog Collars</a>
     </div>
   </main>
   <script>
@@ -289,5 +306,6 @@
 
     setInterval(cycleImages, 3000);
   </script>
+  <script src="../navigation.js"></script>
 </body>
 </html>

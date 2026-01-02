@@ -176,12 +176,32 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Versatile Exports</div>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../halter.html">Our Products</a></li>
+  <header style="background-color: #d9cba7; height: 70px; display: flex; align-items: center; padding: 0 40px; position: sticky; top: 0; z-index: 1000;">
+    <div style="color: #6b4e00; font-weight: 700; font-size: 1.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-right: 40px;">
+      Versatile Exports
+    </div>
+    <nav style="margin-left: 0;">
+      <ul style="display: flex; gap: 40px; margin: 0; padding: 0; list-style: none; height: 70px; align-items: center;">
+        <li><a href="../index.html" class="active">Home</a></li>
+        <li class="has-nested" style="position: relative;">
+          <a href="#" onclick="return false;" style="cursor: default;">Our Products</a>
+          <div class="dropdown-menu">
+            <a href="#" class="nested-toggle">Horse Products</a>
+            <div class="nested-dropdown">
+              <a href="../halter.html">Halters</a>
+              <a href="bridles-and-reins.html">Bridles and Reins</a>
+              <a href="carriage-driving-harness.html">Carriage Driving Harness</a>
+              <a href="training-and-lunging.html">Training and Lunging</a>
+              <a href="pony-pad.html">Pony Pad</a>
+              <a href="bell-boots.html">Bell Boots</a>
+              <a href="neck-bells.html">Neck Bells</a>
+            </div>
+            <a href="#" class="nested-toggle">Dog Products</a>
+            <div class="nested-dropdown">
+              <a href="dog-collars-list.html">Dog Collars</a>
+            </div>
+          </div>
+        </li>
         <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -195,7 +215,6 @@
         <img src="../Website Photos/P.    Dog Collars/Dog Collars with Shiny Crystals/IMG_2425.JPG" alt="Dog Collars with Shiny Crystals" class="thumbnail" />
         <img src="../Website Photos/P.    Dog Collars/Dog Collars with Shiny Crystals/IMG_2427.JPG" alt="Dog Collars with Shiny Crystals" class="thumbnail" />
         <img src="../Website Photos/P.    Dog Collars/Dog Collars with Shiny Crystals/IMG_2429.JPG" alt="Dog Collars with Shiny Crystals" class="thumbnail" />
-        <img src="../Website Photos/P.    Dog Collars/Dog Collars with Shiny Crystals/IMG_2437.JPG" alt="Dog Collars with Shiny Crystals" class="thumbnail" />
       </div>
     </div>
     <div class="product-details">
@@ -203,22 +222,12 @@
       <div class="product-description">
         This dog collar features beautiful shiny crystals embedded in durable leather, combining style and strength.
       </div>
-      <div class="tabs">
-        <div class="tab active" data-tab="description">Description</div>
-        <div class="tab" data-tab="specifications">Specifications</div>
-        <div class="tab" data-tab="reviews">Reviews</div>
-      </div>
-      <div class="tab-content" id="tabContent">
-        <p>Crafted with high-quality leather and adorned with sparkling crystals, this collar is perfect for your stylish pet.</p>
-      </div>
       <a href="dog-collars-list.html" class="back-link">&#8592; Back to Dog Collars</a>
     </div>
   </main>
   <script>
     const mainImage = document.getElementById('mainImage');
     const thumbnails = document.querySelectorAll('.thumbnail');
-    const tabs = document.querySelectorAll('.tab');
-    const tabContent = document.getElementById('tabContent');
 
     // Modal elements
     const modal = document.createElement('div');
@@ -301,22 +310,8 @@
     }
 
     setInterval(cycleImages, 3000);
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const tabName = tab.getAttribute('data-tab');
-        if (tabName === 'description') {
-          tabContent.innerHTML = '<p>Crafted with high-quality leather and adorned with sparkling crystals, this collar is perfect for your stylish pet.</p>';
-        } else if (tabName === 'specifications') {
-          tabContent.innerHTML = '<ul><li>Material: Durable leather with embedded crystals</li><li>Adjustable straps</li><li>Available in multiple sizes</li></ul>';
-        } else if (tabName === 'reviews') {
-          tabContent.innerHTML = '<p>No reviews yet.</p>';
-        }
-      });
-    });
   </script>
+  <script src="../navigation.js"></script>
   <footer style="background-color: #d9cba7; color: #6b4e00; padding: 15px 0; text-align: center; font-weight: 600;">
     © 2024 Versatile Exports. All rights reserved | Designed by Keshav Trivedi, +91-9044194542.
   </footer>
